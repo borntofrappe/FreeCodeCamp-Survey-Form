@@ -5,6 +5,18 @@ $font-family-text: 'Montserrat', sans-serif;
 $darker-color: hsl(17, 100%, 53%);
 $lighter-color: hsl(0,0,100%);
 
+%field-reset {
+  border: none;
+  outline: none;
+}
+%field-style {
+  font-size: 1.1rem;
+  font-family: $font-family-text;
+  padding: 0.5rem;
+  border-bottom: 1px solid darken($darker-color, 10%);
+  background-color: darken($lighter-color, 7%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -47,22 +59,14 @@ body {
         border-left: 3px solid darken($darker-color, 10%);
       }
       input {
+        @extend %field-reset;
+        @extend %field-style;
         align-self: flex-start;
-        font-size: 1.1rem;
-        font-family: $font-family-text;
-        padding: 0.5rem;
-        border: none;
-        border-bottom: 1px solid darken($darker-color, 10%);
-        outline: none;
       }
       select {
+        @extend %field-reset;
+        @extend %field-style;
         align-self: flex-start;
-        font-size: 1.1rem;
-        font-family: $font-family-text;
-        padding: 0.5rem;
-        border: none;
-        border-bottom: 1px solid darken($darker-color, 10%);
-        outline: none;
       }
     }
 
@@ -76,25 +80,22 @@ body {
       }
     }
     textarea {
+      @extend %field-reset;
+      @extend %field-style;
       max-width: 100%;
       min-height: 100px;
       padding: 0.5rem;
-      font-size: 1.1rem;
-      font-family: $font-family-text;
-      outline: none;
-      border: none;
-      border-bottom: 1px solid darken($darker-color, 10%);
       resize: none;
     }
 
     #submit {
+      @extend %field-reset;
       padding: 0.75rem 1rem;
-      background-color: darken($darker-color, 10%);
       color: $lighter-color;
+      background-color: darken($darker-color, 10%);
       font-family: $font-family-headers;
       text-transform: uppercase;
       font-weight: bold;
-      border: none;
       transition: all 0.3s ease-out;
       &:hover {
         background-color: darken($darker-color, 5%);
